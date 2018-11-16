@@ -60,8 +60,8 @@ services:
          - mariadb-master
          - mariadb-slave
        volumes:
-         - /root/mycat/server.xml:/usr/local/mycat/conf/server.xml
-         - /root/mycat/schema.xml:/usr/local/mycat/conf/schema.xml
+         - /root/webconf/mycat/server.xml:/usr/local/mycat/conf/server.xml
+         - /root/webconf/mycat/schema.xml:/usr/local/mycat/conf/schema.xml
        restart: always
     php:
        image: centos_php
@@ -94,8 +94,6 @@ services:
          - /root/webconf/nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf
          - /root/webconf/nginx/conf.d/:/usr/local/nginx/conf.d/
          - /var/log/nginx/:/var/log/nginx/:rw
-         - /etc/letsencrypt/live/logmm.org/privkey.pem:/etc/letsencrypt/live/logmm.org/privkey.pem
-         - /etc/letsencrypt/live/logmm.org/fullchain.pem:/etc/letsencrypt/live/logmm.org/fullchain.pem
        restart: always
 networks:
    mynet:
