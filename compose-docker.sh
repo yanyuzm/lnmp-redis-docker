@@ -11,7 +11,7 @@ version: "2"
 services:
     redis:
        image: centos_redis
-       container_name: redis-5.0.0
+       container_name: redis-5.0
        ports:
          - "6379:6379"
        networks:
@@ -20,6 +20,18 @@ services:
          - /redis_data:/redis_data:rw
          - /var/log/redis.log:/var/log/redis.log:rw
          - /root/webconf/redis.conf:/usr/local/redis/redis.conf 
+       restart: always
+    mariadb-master: 
+       image: centos_mariadb
+       container_name: mariadb-10.3-M
+       ports:
+         - "3306:3306"
+       networks:
+         - mynet
+       environment:
+         - MYSQL_ROOT_PASSWORD=123456
+       volumes:
+         - /mydb/3306/data/:/mydb/3306/data/:rw
        restart: always
     mariadb-slave: 
        image: centos_mariadb
@@ -36,21 +48,9 @@ services:
          - /mydb/3307/data/:/mydb/3306/data/:rw
          - /mydb/3307/my.cnf:/etc/my.cnf:ro
        restart: always
-    mariadb-master: 
-       image: centos_mariadb
-       container_name: mariadb-10.3-M
-       ports:
-         - "3306:3306"
-       networks:
-         - mynet
-       environment:
-         - MYSQL_ROOT_PASSWORD=123456
-       volumes:
-         - /mydb/3306/data/:/mydb/3306/data/:rw
-       restart: always
     mycat:
        image: centos_mycat
-       container_name: mycat
+       container_name: mycat-1.6
        ports:
          - "8066:8066"
          - "9066:9066"
@@ -65,7 +65,7 @@ services:
        restart: always
     php:
        image: centos_php
-       container_name: php-7.2.10
+       container_name: php-7.2
        ports:
          - "9000:9000"
        networks:
