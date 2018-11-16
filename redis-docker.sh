@@ -10,7 +10,7 @@ FROM centos
 #File Author / Maintainer
 MAINTAINER caomuzhong www.logmm.com
 
-RUN  echo -e "sysctl vm.overcommit_memory=1\necho never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local \
+RUN  echo -e "vm.overcommit_memory=1\necho never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local \
   && yum install -y make gcc \
   && curl -O http://download.redis.io/releases/redis-5.0.0.tar.gz \
   && tar xf redis-5.0.0.tar.gz \
