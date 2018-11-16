@@ -381,7 +381,7 @@ RUN yum install -y epel-release bzip2-devel openssl-devel gnutls-devel gcc gcc-c
     && groupadd -g 3306 mysql && useradd -g 3306 -u 3306 -s /sbin/nologin mysql \
     && groupadd -g 1080 nginx && useradd  -g 1080 -u 1080 -M -s /sbin/nologin nginx \
     && mkdir -p /usr/local/nginx/html && chown nginx.nginx /usr/local/nginx/html \
-    && tar xf libmcrypt-2.5.8.tar.gz && cd libmcrypt-2.5.8  && ./configure && make && make install && && rm -rf libmcrypt-2.5.8* \
+    && tar xf libmcrypt-2.5.8.tar.gz && cd libmcrypt-2.5.8  && ./configure && make && make install  && rm -rf libmcrypt-2.5.8* \
     && cd /php-7.2.12 \
     && ./configure  --prefix=/usr/local/php7 \
         --with-config-file-path=/usr/local/php7/etc/ \
