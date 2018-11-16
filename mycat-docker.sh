@@ -129,7 +129,7 @@ cat>mycat/schema.xml<<EOF
         <schema name="wordpress" checkSQLschema="false" sqlMaxLimit="1000" dataNode="dn1" />
         <!--   <schema name="zblog" checkSQLschema="false" sqlMaxLimit="1000" dataNode="dn2" /> -->
 
-        <dataNode name="dn1" dataHost="localhost1" database="mywpdb" />
+        <dataNode name="dn1" dataHost="localhost1" database="wordpress" />
        <!--    <dataNode name="dn2" dataHost="localhost1" database="zblog" /> -->
         <dataHost name="localhost1" maxCon="2000" minCon="1" balance="1"
                           writeType="0" dbType="mysql" dbDriver="native" switchType="2"  slaveThreshold="100">
