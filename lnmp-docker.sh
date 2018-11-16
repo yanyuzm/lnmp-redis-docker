@@ -366,6 +366,7 @@ MAINTAINER caomuzhong www.logmm.com
 #RUN yum install -y epel-release bzip2-devel openssl-devel gnutls-devel gcc gcc-c++  libmcrypt-devel libmcrypt ncurses-devel bison-devel libaio-devel openldap  openldap-devel autoconf bison libxml2-devel libcurl-devel libevent libevent-devel gd-devel  expat-devel
 
 #ADD http://iweb.dl.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz .
+#https://www.linuxprobe.com/Software/libmcrypt-2.5.8.tar.gz
 #RUN tar xf libmcrypt-2.5.8.tar.gz && cd libmcrypt-2.5.8 && ./configure && make && make install
 
 #Install PHP7.2.x and Create dir the same for nginx's root dir
@@ -376,7 +377,7 @@ MAINTAINER caomuzhong www.logmm.com
 #ADD http://uk1.php.net/distributions/php-7.2.10.tar.gz .
 RUN yum install -y epel-release bzip2-devel openssl-devel gnutls-devel gcc gcc-c++   ncurses-devel bison-devel libaio-devel openldap  openldap-devel autoconf bison libxml2-devel libcurl-devel libevent libevent-devel gd-devel  expat-devel \
     && curl -O http://cn2.php.net/distributions/php-7.2.12.tar.gz  \
-    && curl -O http://iweb.dl.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz . \
+    && curl -O https://www.linuxprobe.com/Software/libmcrypt-2.5.8.tar.gz . \
     && tar xf php-7.2.12.tar.gz && rm -f php-7.2.12.tar.gz \
     && groupadd -g 3306 mysql && useradd -g 3306 -u 3306 -s /sbin/nologin mysql \
     && groupadd -g 1080 nginx && useradd  -g 1080 -u 1080 -M -s /sbin/nologin nginx \
